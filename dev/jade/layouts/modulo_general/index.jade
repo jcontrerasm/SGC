@@ -1,0 +1,26 @@
+extends ../../templates/frame_general
+
+block contents
+
+    // ------------------------ Encabezado ------------------------
+
+    div(class="encabezado")
+        div(class="texto-encabezado text-xs-center")
+            div(class="container")
+                h1(class="display-4 wow bounceIn") Sistema de Gestión de Cursos
+                p(class="wow bounceIn" data-wow-duration="2s") Te ofrecemos los mejores cursos virtuales.
+                a(href="registro.html" class="btn btn-primary btn-lg col-md-6") Registrate
+
+        div(class="flecha-bajar text-xs-center")
+            a(data-scroll href="#descripcion")
+                i(class="fa fa-angle-down")
+
+    div(id="descripcion" class="descripcion")
+        div(class="container")
+            h2 Sistema de Enseñanza de Oficios Virtuales
+            p Sistema dedicado a la enseñanza de oficios virtuales, para personas con discapacidad, en quienes confiamos y estamos dispuestos a apoyar e insentivarlos en su formación educativa.
+
+    div(class="seccion-img")
+        div(class="container")
+            h3 Aprende con Nosotros
+

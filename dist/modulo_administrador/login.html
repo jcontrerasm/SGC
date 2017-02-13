@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app-sgc">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Juan Carlos Raúl Contreras Meneses">
+    <meta name="robots" content="">
+    <title>SGC | Sistema de Gestión de Cursos</title>
+    <!-- ------------------------ Carga de fuentes -------------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- ------------------------ Carga de archivos CSS -------------------------->
+    <!--link(rel="shortcut icon", href="images/favicon.ico")-->
+    <link rel="stylesheet" href="../libs/normalize/normalize.css">
+    <link rel="stylesheet" href="../libs/bootstrap4/css/bootstrap-flex.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/styles-dist.css">
+  </head>
+  <body>
+    <section class="contenedor-principal-administrador">
+      <div ng-controller="adminController" class="card col-md-4">
+        <form id="formulario_login_admin" name="formulario_login_admin" novalidate method="post" class="container">
+          <div class="form-group row encabezado-login-admin">
+            <h2>Inicio de Sesión</h2>
+          </div>
+          <div class="form-group row container-icon-login-admin">
+            <div class="rounded-circle"><img src="../images/admin.svg" alt="hat" class="img-fluid"></div>
+          </div>
+          <div class="form-group row">
+            <input type="text" id="usuario_admin" name="usuario_admin" ng-model="usuario_admin" placeholder="Usuario" required class="form-control">
+            <div ng-show="!usuario_admin &amp;&amp; estado_usuario_admin" ng-bind=" 'El usuario no ha sido ingresado.' " class="alert alert-warning col-md-12"></div>
+          </div>
+          <div class="form-group row">
+            <input type="password" id="clave_admin" name="clave_admin" ng-model="clave_admin" placeholder="Contraseña" required class="form-control">
+            <div ng-show="!clave_admin &amp;&amp; estado_clave_admin" ng-bind=" 'La contraseña no ha sido ingresada.' " class="alert alert-warning col-md-12"></div>
+          </div>
+          <div class="form-group row">
+            <input type="submit" value="Acceder" ng-disabled="formulario_login_admin.$invalid" class="btn btn-primary col-md-12">
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- ------------------------ Carga de archivos JS -------------------------->
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/tether/tether.min.js"></script>
+    <script src="../libs/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../libs/moment/moment.min.js"></script>
+    <script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../libs/wow/wow.min.js"></script>
+    <script src="../libs/smooth-scroll/smooth-scroll.min.js"></script>
+    <script src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular/angular-route.min.js"></script>
+    <script src="../../dev/js/app.js"></script>
+    <script src="../../dev/js/controllers/loginController.js"></script>
+    <script src="../../dev/js/controllers/registroController.js"></script>
+    <script src="../../dev/js/controllers/cursoController.js"></script>
+    <script src="../../dev/js/controllers/adminLoginController.js"></script>
+    <script src="../js/main-dist.js"></script>
+  </body>
+</html>

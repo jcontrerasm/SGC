@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app-sgc">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Juan Carlos Raúl Contreras Meneses">
+    <meta name="robots" content="">
+    <title>SGC | Sistema de Gestión de Cursos</title>
+    <!-- ------------------------ Carga de fuentes -------------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- ------------------------ Carga de archivos CSS -------------------------->
+    <link rel="shortcut icon" href="../images/logo-icon.ico">
+    <link rel="stylesheet" href="../libs/normalize/normalize.css">
+    <link rel="stylesheet" href="../libs/bootstrap4/css/bootstrap-flex.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/styles-dist.css">
+  </head>
+  <body>
+    <section class="contenedor-principal">
+      <!-- ------------------------ Header Cliente -------------------------->
+      <header id="header-cliente" role="banner" class="header navbar-fixed-top">
+        <div class="container"><a href="index.html" class="logo"><img src="../images/logo.png" alt="Logo del sitio" class="img-fluid"></a>
+          <button type="button" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false" class="boton-menu hidden-md-up"><i class="fa fa-bars"></i></button>
+          <nav id="menu-principal" ng-controller="loginController" class="collapse">
+            <ul>
+              <li class="active"><a href="index.html">Mis cursos</a></li>
+              <li><a href="" data-toggle="collapse" data-target="#bloque-usuario" aria-expanded="false">Usuario<i class="fa fa-angle-down"></i></a></li>
+            </ul>
+          </nav>
+          <div id="bloque-usuario" action="#" class="collapse">
+            <div class="container-bloque-usuario"><a href="">Mi perfil</a><a href="">Mis mensajes</a><a href="">Cerrar sesíon</a></div>
+          </div>
+        </div>
+      </header>
+      <div class="envoltura-principal">
+        <!-- ------------------------ Mis Cursos -------------------------->
+        <div class="mis-cursos">
+          <div class="cabecera-mis-cursos">
+            <h2 class="text-xs-center">Mis Cursos</h2>
+          </div>
+          <div class="container">
+            <div class="container">
+              <div class="row"><a href="" class="card"><img src="../images/writing-notes-idea-conference.jpg" alt="Card image cap" class="card-img-top img-fluid">
+                  <div class="card-block">
+                    <h4 class="card-title">Diseño de Confecciones en 3D</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda impedit tempore molestias, aut aperiam.</p>
+                  </div></a><a href="" class="card"><img src="../images/writing-notes-idea-conference.jpg" alt="Card image cap" class="card-img-top img-fluid">
+                  <div class="card-block">
+                    <h4 class="card-title">Diseño de Joyeria en 3D</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda impedit tempore molestias, aut aperiam.</p>
+                  </div></a><a href="" class="card"><img src="../images/writing-notes-idea-conference.jpg" alt="Card image cap" class="card-img-top img-fluid">
+                  <div class="card-block">
+                    <h4 class="card-title">Diseño de Plateria en 3D</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda impedit tempore molestias, aut aperiam.</p>
+                  </div></a><a href="" class="card"><img src="../images/writing-notes-idea-conference.jpg" alt="Card image cap" class="card-img-top img-fluid">
+                  <div class="card-block">
+                    <h4 class="card-title">Diseño de Confecciones en 3D</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda impedit tempore molestias, aut aperiam.</p>
+                  </div></a><a href="" class="card"><img src="../images/writing-notes-idea-conference.jpg" alt="Card image cap" class="card-img-top img-fluid">
+                  <div class="card-block">
+                    <h4 class="card-title">Diseño de Joyeria en 3D</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda impedit tempore molestias, aut aperiam.</p>
+                  </div></a><a href="" class="card"><img src="../images/writing-notes-idea-conference.jpg" alt="Card image cap" class="card-img-top img-fluid">
+                  <div class="card-block">
+                    <h4 class="card-title">Diseño de Plateria en 3D</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus assumenda impedit tempore molestias, aut aperiam.</p>
+                  </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------ Footer General -------------------------->
+      <footer role="contentinfo" class="footer">
+        <div class="container">
+          <p>2016 ©USMP - Todos los derechos reservados</p>
+        </div>
+      </footer><a data-scroll href="#header-cliente" class="btn-arriba"><i class="fa fa-arrow-circle-up"></i></a>
+    </section>
+    <!-- ------------------------ Carga de archivos JS -------------------------->
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/tether/tether.min.js"></script>
+    <script src="../libs/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../libs/moment/moment.min.js"></script>
+    <script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../libs/wow/wow.min.js"></script>
+    <script src="../libs/smooth-scroll/smooth-scroll.min.js"></script>
+    <script src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular/angular-route.min.js"></script>
+    <script src="../../dev/js/app.js"></script>
+    <script src="../../dev/js/controllers/loginController.js"></script>
+    <script src="../../dev/js/controllers/registroController.js"></script>
+    <script src="../../dev/js/controllers/cursoController.js"></script>
+    <script src="../js/main-dist.js"></script>
+  </body>
+</html>

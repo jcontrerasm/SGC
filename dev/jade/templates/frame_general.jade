@@ -1,0 +1,54 @@
+doctype
+html(lang="es" ng-app="app-sgc")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(name="description" content="")
+        meta(name="keywords" content="")
+        meta(name="author" content="Juan Carlos Raúl Contreras Meneses")
+        meta(name="robots" content="")
+
+        title SGC | Sistema de Gestión de Cursos
+        
+        // ------------------------ Carga de fuentes ------------------------
+
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans")
+
+        // ------------------------ Carga de archivos CSS ------------------------
+
+        link(rel="shortcut icon", href="../images/logo-icon.ico")
+        link(rel="stylesheet", href="../libs/normalize/normalize.css")
+        link(rel="stylesheet", href="../libs/bootstrap4/css/bootstrap-flex.min.css")
+        link(rel="stylesheet", href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css")
+        link(rel="stylesheet", href="../libs/animate/animate.min.css")
+        link(rel="stylesheet", href="../libs/font-awesome/font-awesome.min.css")
+        link(rel="stylesheet", href="../css/styles-dist.css")
+
+    body
+        section(class="contenedor-principal")
+            
+            block header
+                include header_general
+
+            div(class="envoltura-principal")
+                block contents
+
+            block footer
+                include footer_general
+        
+        // ------------------------ Carga de archivos JS ------------------------
+
+        script(src="../libs/jquery/jquery.min.js")
+        script(src="../libs/tether/tether.min.js")
+        script(src="../libs/bootstrap4/js/bootstrap.min.js")
+        script(src="../libs/moment/moment.min.js")
+        script(src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js")
+        script(src="../libs/wow/wow.min.js")
+        script(src="../libs/smooth-scroll/smooth-scroll.min.js")
+        script(src="../libs/angular/angular.min.js")
+        script(src="../libs/angular/angular-route.min.js")
+        script(src="../../dev/js/app.js")
+        script(src="../../dev/js/controllers/loginController.js")
+        script(src="../../dev/js/controllers/registroController.js")
+        script(src="../js/main-dist.js")

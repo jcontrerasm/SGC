@@ -1,0 +1,78 @@
+
+// ------------------------ Header General ------------------------
+
+header(id="header" class="header navbar-fixed-top" role="banner")
+    div(class="container")
+        a(href="index.html" class="logo")
+            img(src="../images/logo.png" alt="Logo del sitio" class="img-fluid")
+
+        button(type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false")
+            i(class="fa fa-search")
+                
+        button(type="button" class="boton-menu hidden-md-up" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false")
+            i(class="fa fa-bars")
+
+        form(id="bloque-buscar" action="#" class="collapse")
+            div(class="container-bloque-buscar")
+                input(type="search" placeholder="Buscar...")
+                input(type="submit" value="Buscar")
+
+        nav(id="menu-principal" class="collapse" ng-controller="loginController")
+            ul
+                li(id="index"): a(href="index.html") Inicio
+                li(id="cursos"): a(href="cursos.html") Cursos
+                li(id="contacto"): a(href="contacto.html") Contacto
+                li(id="registro"): a(href="registro.html") Registrate
+                li: a(href="" data-toggle="modal" data-target="#modal-login") Login
+
+div(class="modal fade" id="modal-login" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel1" aria-hidden="true" ng-controller="loginController")
+    div(class="modal-dialog" role="document")
+        div(class="modal-content")
+            div(class="modal-header")
+                button(type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="reset_login()")
+                    span(aria-hidden="true") &times;
+                h4(class="modal-title text-xs-center" id="myModalLabel1" ng-bind=" titulo_modal ")
+
+            div(class="modal-body")
+                                
+                //Formulario login
+
+                form(class="container" id="formulario_login" name="formulario_login" novalidate ng-show="!ocultar_login" method="post")
+
+                    div(class="form-group row container-icon-login")
+                        div(class="rounded-circle")
+                            img(src="../images/hat.svg", alt="hat" class="img-responsive")
+                    div(class="form-group row")
+                        input(type="text" class="form-control" id="usuario" name="usuario" ng-model="usuario" placeholder="Usuario" required)
+                        div(ng-show="!usuario && estado_usuario" class="alert alert-warning col-md-12" ng-bind=" 'El usuario no ha sido ingresado.' ")
+
+                    div(class="form-group row")
+                        input(type="password" class="form-control" id="clave" name="clave" ng-model="clave" placeholder="Contraseña" required)
+                        div(ng-show="!clave && estado_clave" class="alert alert-warning col-md-12" ng-bind=" 'La contraseña no ha sido ingresada.' ")
+
+                    div(class="form-group row")
+                        div(ng-show="invalido" class="alert alert-danger col-md-12" ng-bind=" 'Los datos ingresados no son válidos.' ")
+
+                    div(class="form-group row")
+                        input(type="submit" class="btn btn-primary col-md-12" value="Acceder" ng-disabled="formulario_login.$invalid")
+
+                    div(class="form-group text-xs-center")
+                        button(type="button" class="recuperar-password" ng-click="recuperar_password()") ¿Olvidaste tu contraseña?
+
+                //Formulario Recuperar Contraseña
+
+                form(method="post" class="container" id="formulario_recuperar_password" name="formulario_recuperar_password" novalidate ng-show="ocultar_login")
+                                    
+                    div(class="form-group row" ng-hide="enviado")
+                        input(type="email" class="form-control" id="idmsj" name="recuperacion_email" ng-model="recuperacion_email" placeholder="Ingrese su correo electrónico" required)
+                        div(ng-show="!recuperacion_email && estado_recuperacion_email" class="alert alert-warning col-md-12" ng-bind=" 'El correo es invalido.' ")
+
+                    div(class="form-group row" ng-hide="enviado")
+                        input(type="submit" class="btn btn-primary col-md-12" value="Recuperar Contraseña" ng-disabled="formulario_recuperar_password.$invalid" ng-click="email_enviado()")
+
+                    div(class="row text-xs-center" ng-show="enviado")
+                        div(class="col-xs-12")
+                            i(class="fa fa-envelope fa-4x")
+                        div(class="col-xs-12")
+                            p(class="txt-email-enviado") Por favor, revise la bandeja de entra del correo proporcionado.

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app-sgc">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Juan Carlos Raúl Contreras Meneses">
+    <meta name="robots" content="">
+    <title>SGC | Sistema de Gestión de Cursos</title>
+    <!-- ------------------------ Carga de fuentes -------------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- ------------------------ Carga de archivos CSS -------------------------->
+    <link rel="shortcut icon" href="../images/logo-icon.ico">
+    <link rel="stylesheet" href="../libs/normalize/normalize.css">
+    <link rel="stylesheet" href="../libs/bootstrap4/css/bootstrap-flex.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/styles-dist.css">
+  </head>
+  <body>
+    <section class="contenedor-principal">
+      <!-- ------------------------ Header Cliente -------------------------->
+      <header id="header-cliente" role="banner" class="header navbar-fixed-top">
+        <div class="container"><a href="index.html" class="logo"><img src="../images/logo.png" alt="Logo del sitio" class="img-fluid"></a>
+          <button type="button" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false" class="boton-menu hidden-md-up"><i class="fa fa-bars"></i></button>
+          <nav id="menu-principal" ng-controller="loginController" class="collapse">
+            <ul>
+              <li class="active"><a href="index.html">Mis cursos</a></li>
+              <li><a href="" data-toggle="collapse" data-target="#bloque-usuario" aria-expanded="false">Usuario<i class="fa fa-angle-down"></i></a></li>
+            </ul>
+          </nav>
+          <div id="bloque-usuario" action="#" class="collapse">
+            <div class="container-bloque-usuario"><a href="">Mi perfil</a><a href="">Mis mensajes</a><a href="">Cerrar sesíon</a></div>
+          </div>
+        </div>
+      </header>
+      <div class="envoltura-principal">
+        <!-- ------------------------ Curso -------------------------->
+        <div ng-controller="cursoController" class="curso">
+          <div class="cabecera-curso">
+            <h2 class="text-xs-center">Cursos : Diseño de Confecciones en 3D</h2>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div id="menu-curso" ng-model="menu_curso" ng-show="menu_curso" class="col-md-3">
+                <section id="acordion-curso" role="tablist" class="menu-curso card panel-group"><a data-toggle="collapse" data-parent="#acordion-curso" href="#accordion1"><i class="fa fa-home"></i><span>Inicio</span></a>
+                  <div id="accordion1" class="collapse in">
+                    <div class="submenu-curso"><a href=""><i class="fa fa-angle-right"></i><span>Descripción</span></a></div>
+                  </div><a data-toggle="collapse" data-parent="#acordion-curso" href="#accordion2"><i class="fa fa-book"></i><span>Contenido</span></a>
+                  <div id="accordion2" class="collapse">
+                    <div class="submenu-curso"><a href=""><i class="fa fa-angle-right"></i><span>Introducción</span></a><a href=""><i class="fa fa-angle-right"></i><span>Módulo 1</span></a><a href=""><i class="fa fa-angle-right"></i><span>Módulo 2</span></a><a href=""><i class="fa fa-angle-right"></i><span>Módulo 3</span></a><a href=""><i class="fa fa-angle-right"></i><span>Módulo 4</span></a><a href=""><i class="fa fa-angle-right"></i><span>Módulo 5</span></a><a href=""><i class="fa fa-angle-right"></i><span>Módulo 6</span></a></div>
+                  </div><a data-toggle="collapse" data-parent="#acordion-curso" href="#accordion3"><i class="fa fa-newspaper-o"></i><span>Seguimiento</span></a>
+                  <div id="accordion3" class="collapse">
+                    <div class="submenu-curso"><a href=""><i class="fa fa-angle-right"></i><span>Mensajes</span></a><a href=""><i class="fa fa-angle-right"></i><span>Resultados</span></a></div>
+                  </div>
+                </section>
+              </div>
+              <div id="seccion-curso" class="col-md-9">
+                <section class="seccion-curso card">
+                  <!--include includes/descripcion-->
+                  <div class="contenido-curso">
+                    <h3>Módulo 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias dolorem earum neque illum unde sit voluptate dolore doloremque ducimus quo sint, repudiandae animi ea ipsum officiis blanditiis reprehenderit autem debitis!</p>
+                    <h4>Clase 1</h4>
+                    <div class="bloque-temas-curso card"><a href="#contenido_curso" data-toggle="collapse"><i class="fa fa-folder-open"></i><span>1.- Tipos de ropa (Diapositivas)</span></a>
+                      <!--embed(id="archivo" class="collapse" src="../INFORME_ACTIVIDAD_UC3M_v0.9.pdf#toolbar=0" width="100%" height="600")--><a href=""><i class="fa fa-play-circle"></i><span>Resumen</span></a><a href=""><i class="fa fa-pencil-square-o"></i><span>Evaluación</span></a>
+                    </div>
+                    <div class="bloque-contenido-curso">
+                      <iframe id="contenido_curso" src="http://docs.google.com/gview?url=http://www.uco.es/webuco/buc/pdfdoc/librode_estilo.pdf&amp;embedded=true" frameborder="0" class="collapse"></iframe>
+                      <!--video()-->
+                    </div>
+                  </div>
+                </section>
+                <button type="button" data-toggle="tooltip" data-placement="left" title="Presione el botón para ampliar la pantalla." ng-model="btn_ampliar" ng-show="btn_ampliar" ng-click="opcion_pantalla('ampliar')" class="fa fa-expand btn-pantalla"></button>
+                <button type="button" data-toggle="tooltip" data-placement="left" title="Presione el botón para reducir la pantalla." ng-model="btn_reducir" ng-show="btn_reducir" ng-click="opcion_pantalla('reducir')" class="fa fa-compress btn-pantalla"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------ Footer General -------------------------->
+      <footer role="contentinfo" class="footer">
+        <div class="container">
+          <p>2016 ©USMP - Todos los derechos reservados</p>
+        </div>
+      </footer><a data-scroll href="#header-cliente" class="btn-arriba"><i class="fa fa-arrow-circle-up"></i></a>
+    </section>
+    <!-- ------------------------ Carga de archivos JS -------------------------->
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/tether/tether.min.js"></script>
+    <script src="../libs/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../libs/moment/moment.min.js"></script>
+    <script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../libs/wow/wow.min.js"></script>
+    <script src="../libs/smooth-scroll/smooth-scroll.min.js"></script>
+    <script src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular/angular-route.min.js"></script>
+    <script src="../../dev/js/app.js"></script>
+    <script src="../../dev/js/controllers/loginController.js"></script>
+    <script src="../../dev/js/controllers/registroController.js"></script>
+    <script src="../../dev/js/controllers/cursoController.js"></script>
+    <script src="../js/main-dist.js"></script>
+  </body>
+</html>

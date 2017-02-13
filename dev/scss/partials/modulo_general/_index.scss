@@ -1,0 +1,186 @@
+
+/* -------------------------------------------
+   Encabezado Styles
+   ------------------------------------------- */
+
+.encabezado {
+    background: url("../images/red-school-blur-factory.png") no-repeat center top;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado .container {
+    @media (min-width: 768px){
+      position: relative;
+    }
+}
+
+.texto-encabezado {
+    color: #FFF;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+}
+
+.texto-encabezado .display-4 {
+  margin-top: 4rem;
+}
+
+.texto-encabezado p {
+    font-size: 1.5rem;
+}
+
+.texto-encabezado a {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background-color: $c-primario;
+    color: #fff;
+    border-color: transparent;
+    transition: .5s;
+}
+
+.recuperar-password {
+    background-color: transparent;
+    color: $c-primario;
+}
+
+button:focus {
+    outline: none;
+    outline: none;
+}
+
+.btn-primary:active:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:hover {
+    background-color: $c-secundario;
+    border-color: transparent;
+}
+
+.btn-primary.disabled.focus,
+.btn-primary.disabled:focus,
+.btn-primary:disabled.focus,
+.btn-primary:disabled:focus {
+    background-color: $c-secundario;
+    border-color: transparent;
+}
+
+input[type="submit"]:disabled {
+    background: #1E8A60;
+    opacity: .6;
+}
+
+.btn-primary.disabled:hover,
+.btn-primary:disabled:hover {
+    background-color: $c-secundario;
+    border-color: transparent;
+}
+
+#modal-login {
+    color: $c-texto;
+}
+
+.modal.in .modal-dialog {
+    /*
+    @media (min-width: 768px){
+      transform: translate(0,50%);
+    }
+    */
+}
+
+#modal-login .modal-dialog {
+    @media (min-width: 768px){
+      width: 400px;
+    }
+}
+
+.container-icon-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-icon-login .rounded-circle {
+    width: 120px;
+    height: 120px;
+    background-color: $c-primario;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-icon-login .rounded-circle img {
+    width: 100%;
+    padding: 1rem;
+}
+
+
+.flecha-bajar a {
+    display: inline-block;
+    color: #FFFFFF;
+    font-size: 4rem;
+    animation: flecha-animada 2s ease-in-out infinite; 
+}
+
+@keyframes flecha-animada{
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* -------------------------------------------
+   Descripción Styles
+   ------------------------------------------- */
+
+.descripcion {
+    background-color: #FFFFFF;
+    color: $c-texto;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.descripcion h2 {
+    font-size: 2.5rem;
+    color: $c-primario;
+    margin-bottom: 2rem;
+}
+
+.descripcion p {
+    font-size: 1.2rem;
+    margin-bottom: 0px;
+}
+
+/* -------------------------------------------
+   Sección-Img Styles
+   ------------------------------------------- */
+
+.seccion-img {
+    height: 600px;
+    background-image: url(../images/writing-notes-idea-conference.jpg);
+    background-size: cover;
+}
+
+.seccion-img .container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-img .container h3 {
+    font-size: 4rem;
+    color: #FFFFFF;
+    text-align: center;
+}

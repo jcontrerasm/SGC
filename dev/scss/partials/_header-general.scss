@@ -1,0 +1,168 @@
+
+.header {
+	background-color: $c-texto;
+  color: #FFFFFF;
+  padding: .5rem 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header .logo img {
+  width: 80px;
+  height: auto;
+}
+
+/* ---------- Bloque buscar ---------- */
+
+.boton-buscar ,
+.boton-menu {
+  border: 0;
+  margin: 0;
+  font-size: 2rem;
+  padding: 0 .5rem;
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+#bloque-buscar .container-bloque-buscar input[type="search"] {
+  color: #505050;
+ }
+
+.boton-buscar:focus ,
+.boton-menu:focus {
+  outline: 0;
+}
+
+.boton-buscar {
+  margin-left: auto;
+  margin-right: .8rem;
+
+  @media (min-width: 768px){
+    order: 2;
+    margin-left: 1rem;
+    margin-right: 0;
+  }
+
+}
+
+#bloque-buscar {
+  flex: 1 1 100%;
+  
+  @media (min-width: 768px){
+      order: 3;
+      position: absolute;
+      width: 20rem;
+      top: 3.5rem;
+      right: 1rem;
+  }
+
+}
+
+.container-bloque-buscar {
+  display: flex;
+  height: 3rem;
+  margin: 1rem 0;
+}
+
+.container-bloque-buscar input[type="search"] {
+  flex: 5 1 auto;
+  border: 0;
+  border-radius: 5px 0 0 5px;
+  padding: 1rem;
+}
+
+.container-bloque-buscar input[type="submit"] {
+  flex: 1 1 auto;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+  background-color: $c-primario;
+  color: #FFFFFF;
+  padding: 0 5px 0 5px;
+}
+
+/* ---------- Menu ---------- */
+
+#menu-principal {
+  flex: 1 1 100%;
+
+  @media (min-width: 768px){
+      height: auto !important; 
+      display: block;
+      flex: 0 1 auto;
+      margin-left: auto;
+      order: 1;
+      font-size: 1.2rem;
+  }
+
+}
+
+#menu-principal ul {
+  padding: 0;
+  margin: 1rem 0 0 0;
+
+  @media (min-width: 768px){
+      display: flex;
+      margin: 0 0 0 0;
+  }
+
+}
+
+#menu-principal ul a {
+  display: block;
+  padding: .8rem 0;
+  text-align: center;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  border-top: 1px solid #ACACAC;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: all .5s ease;
+
+  @media (min-width: 768px){
+      padding: .8rem;
+      margin: 0 .3rem;
+      border-top: 0;
+      text-transform: capitalize;
+  }
+
+}
+
+#menu-principal ul a:hover {
+  color: $c-primario;
+
+  @media (min-width: 768px){
+    color: $c-primario;
+    border-bottom: 3px solid;
+  }
+
+}
+
+#menu-principal ul li.active a {
+  color: $c-primario;
+
+  @media (min-width: 768px){
+    color: $c-primario;
+    border-bottom: 3px solid;
+  }
+
+}
+
+#menu-principal ul li:last-child a {
+  outline: none;
+}
+
+/* ---------- Recuperar Contraseña ---------- */
+
+.fa-envelope {
+  color: $c-primario;
+}
+
+.txt-email-enviado {
+  font-size: 1rem;
+  margin: .5rem;
+}

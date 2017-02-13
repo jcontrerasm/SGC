@@ -1,0 +1,79 @@
+
+.principal-admin {
+	padding-top: 6rem;
+}
+
+.menu-admin {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 0px;
+	margin: 1rem 0;
+	transition: .5s;
+}
+
+.menu-admin > a {
+	height: 3rem;
+	padding-left: 2rem;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 1.05rem;
+	background-color: #489FDF;
+	color: #FFFFFF;
+}
+
+.menu-admin > a > i ,
+.submenu-admin > a > i {
+	padding-right: 1rem;
+	font-size: 1.4rem;
+}
+
+.menu-admin .submenu-admin > a{
+	height: 3rem;
+	padding-left: 2rem;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	background-color: #4D5260;
+	color: #FFFFFF;
+}
+
+.menu-admin .submenu-admin > a:hover{
+	opacity: .9;
+}
+
+// Seccion contenido - administrador
+
+.contenido-admin {
+	margin: 1rem 0 2rem 0;
+	min-height: 550px;
+	position: relative;
+	z-index: 900;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #DADADA;
+}
+
+.contenido-admin > h3 {
+	font-size: 3rem;
+	text-align: center;
+	margin: 2rem;
+}
+
+.contenido-admin form {
+	padding-top: 3rem;
+}
+
+.contenido-admin table tr th,
+.contenido-admin table tr td{
+	text-align: center;
+}
+
+.contenido-admin table tr a{
+	text-decoration: none;
+}

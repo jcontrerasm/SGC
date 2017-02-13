@@ -1,0 +1,50 @@
+
+.footer {
+	background-color: $c-texto;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 0.9rem;
+	padding: 1rem 0;
+}
+
+.footer .redes-sociales {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+.redes-sociales a {
+	color: #FFFFFF;
+	font-size: 2rem;
+	margin: 0 1.5rem;
+	opacity: .7;
+	transition: all .5s ease;
+}
+
+.redes-sociales a:hover {
+	opacity: 1;
+}
+
+.footer p {
+	margin-top: 1.5rem;
+}
+
+.btn-arriba {
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	font-size: 3rem;
+	color: #FFFFFF;
+	opacity: .5;
+	text-decoration: none;
+	z-index: 99999;
+	line-height: 0;
+	transition: all .5s ease;
+}
+
+.btn-arriba:hover,
+.btn-arriba:focus {
+	outline: 0;
+	text-decoration: none;
+	color: #FFFFFF;
+}

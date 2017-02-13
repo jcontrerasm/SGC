@@ -1,0 +1,72 @@
+/* ===========================================
+   CSS Reset
+   =========================================== */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: 0px;
+  border: 0px none;
+  font-size: 100%;
+  font-style: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* ===========================================
+   General Imports
+   =========================================== */
+
+@import "_vars";
+@import "partials/_header-general";
+@import "partials/_footer-general";
+@import "partials/_header-cliente";
+@import "partials/_footer-cliente";
+
+/* ===========================================
+   Contents Styles
+   =========================================== */
+
+@import "partials/modulo_general/_index";
+@import "partials/modulo_general/_registro";
+@import "partials/modulo_general/_contacto";
+@import "partials/modulo_general/_cursos";
+
+@import "partials/modulo_cliente/_index";
+@import "partials/modulo_cliente/_curso";
+
+@import "partials/modulo_administrador/_login";
+@import "partials/modulo_administrador/_principal";
+
+/* ===========================================
+   General Styles
+   =========================================== */
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: $c-texto;
+  background-color: #F2F2F2;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+input[type=date]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}

@@ -1,0 +1,55 @@
+extends ../../../templates/frame_administrador
+
+block contents
+
+    // ------------------------ Principal Administrador ------------------------
+
+    div(class="container-fluid principal-admin" ng-controller="adminController")
+
+        div(class="row")
+
+            div(id="menu-admin" class="col-lg-3" ng-model="menu_admin")
+
+                section(id="acordion-menu-admin" class="menu-admin card panel-group" role="tablist")
+
+                    a(data-toggle="collapse" data-parent="#acordion-menu-admin" href="#accordion-admin")
+                        i(class="fa fa-bars")
+                        span Menu Administrador
+
+                    div(id="accordion-admin" class="collapse in")
+                        div(class="submenu-admin")
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Crear tipo de encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Mostrar tipo de encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Crear encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Mostrar encuesta
+
+            div(class="col-lg-9" ng-model="contenido_admin" )
+
+                section(class="contenido-admin card")
+
+                    h3 Listado de encuestas
+                    
+                    div(class="container")
+                        table(class="table")
+                            thead(class="thead-inverse")
+                                tr
+                                    th N°
+                                    th NOMBRE DE ENCUESTA
+                                    th
+                                    th
+                            tbody
+                                tr
+                                    td
+                                    td
+                                    td: a(href="")
+                                    td: a(href="")
+
+                   

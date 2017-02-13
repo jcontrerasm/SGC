@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app-sgc">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Juan Carlos Raúl Contreras Meneses">
+    <meta name="robots" content="">
+    <title>SGC | Sistema de Gestión de Cursos</title>
+    <!-- ------------------------ Carga de fuentes -------------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- ------------------------ Carga de archivos CSS -------------------------->
+    <link rel="shortcut icon" href="../images/logo-icon.ico">
+    <link rel="stylesheet" href="../libs/normalize/normalize.css">
+    <link rel="stylesheet" href="../libs/bootstrap4/css/bootstrap-flex.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/styles-dist.css">
+  </head>
+  <body>
+    <section class="contenedor-principal">
+      <!-- ------------------------ Header General -------------------------->
+      <header id="header" role="banner" class="header navbar-fixed-top">
+        <div class="container"><a href="index.html" class="logo"><img src="../images/logo.png" alt="Logo del sitio" class="img-fluid"></a>
+          <button type="button" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false" class="boton-buscar"><i class="fa fa-search"></i></button>
+          <button type="button" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false" class="boton-menu hidden-md-up"><i class="fa fa-bars"></i></button>
+          <form id="bloque-buscar" action="#" class="collapse">
+            <div class="container-bloque-buscar">
+              <input type="search" placeholder="Buscar...">
+              <input type="submit" value="Buscar">
+            </div>
+          </form>
+          <nav id="menu-principal" ng-controller="loginController" class="collapse">
+            <ul>
+              <li id="index"><a href="index.html">Inicio</a></li>
+              <li id="cursos"><a href="cursos.html">Cursos</a></li>
+              <li id="contacto"><a href="contacto.html">Contacto</a></li>
+              <li id="registro"><a href="registro.html">Registrate</a></li>
+              <li><a href="" data-toggle="modal" data-target="#modal-login">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" ng-controller="loginController" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-label="Close" ng-click="reset_login()" class="close"><span aria-hidden="true">&times;</span></button>
+              <h4 id="myModalLabel1" ng-bind=" titulo_modal " class="modal-title text-xs-center"></h4>
+            </div>
+            <div class="modal-body">
+              <!--Formulario login-->
+              <form id="formulario_login" name="formulario_login" novalidate ng-show="!ocultar_login" method="post" class="container">
+                <div class="form-group row container-icon-login">
+                  <div class="rounded-circle"><img src="../images/hat.svg" alt="hat" class="img-responsive"></div>
+                </div>
+                <div class="form-group row">
+                  <input type="text" id="usuario" name="usuario" ng-model="usuario" placeholder="Usuario" required class="form-control">
+                  <div ng-show="!usuario &amp;&amp; estado_usuario" ng-bind=" 'El usuario no ha sido ingresado.' " class="alert alert-warning col-md-12"></div>
+                </div>
+                <div class="form-group row">
+                  <input type="password" id="clave" name="clave" ng-model="clave" placeholder="Contraseña" required class="form-control">
+                  <div ng-show="!clave &amp;&amp; estado_clave" ng-bind=" 'La contraseña no ha sido ingresada.' " class="alert alert-warning col-md-12"></div>
+                </div>
+                <div class="form-group row">
+                  <div ng-show="invalido" ng-bind=" 'Los datos ingresados no son válidos.' " class="alert alert-danger col-md-12"></div>
+                </div>
+                <div class="form-group row">
+                  <input type="submit" value="Acceder" ng-disabled="formulario_login.$invalid" class="btn btn-primary col-md-12">
+                </div>
+                <div class="form-group text-xs-center">
+                  <button type="button" ng-click="recuperar_password()" class="recuperar-password">¿Olvidaste tu contraseña?</button>
+                </div>
+              </form>
+              <!--Formulario Recuperar Contraseña-->
+              <form method="post" id="formulario_recuperar_password" name="formulario_recuperar_password" novalidate ng-show="ocultar_login" class="container">
+                <div ng-hide="enviado" class="form-group row">
+                  <input type="email" id="idmsj" name="recuperacion_email" ng-model="recuperacion_email" placeholder="Ingrese su correo electrónico" required class="form-control">
+                  <div ng-show="!recuperacion_email &amp;&amp; estado_recuperacion_email" ng-bind=" 'El correo es invalido.' " class="alert alert-warning col-md-12"></div>
+                </div>
+                <div ng-hide="enviado" class="form-group row">
+                  <input type="submit" value="Recuperar Contraseña" ng-disabled="formulario_recuperar_password.$invalid" ng-click="email_enviado()" class="btn btn-primary col-md-12">
+                </div>
+                <div ng-show="enviado" class="row text-xs-center">
+                  <div class="col-xs-12"><i class="fa fa-envelope fa-4x"></i></div>
+                  <div class="col-xs-12">
+                    <p class="txt-email-enviado">Por favor, revise la bandeja de entra del correo proporcionado.</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="envoltura-principal">
+        <!-- ------------------------ Registro -------------------------->
+        <div ng-controller="registroController" class="registro">
+          <div class="container">
+            <h2>Formulario de Registro</h2>
+            <p>Complete los siguientes campos para formar parte de la comunidad peruana oficial de oficios a travez de una experiencia virtual.</p>
+            <div class="container-formulario-registro">
+              <form id="formulario_registro" name="formulario_registro" method="post" action="" novalidate class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Nombre:</label>
+                    <div class="col-sm-8">
+                      <input type="text" id="txt_nombre" name="txt_nombre" ng-model="usuario.txt_nombre" required class="form-control">
+                      <div ng-show="!usuario.txt_nombre &amp;&amp; estado_nombre" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Apellido paterno:</label>
+                    <div class="col-sm-8">
+                      <input type="text" id="txt_apepat" name="txt_apepat" ng-model="usuario.txt_apepat" required class="form-control">
+                      <div ng-show="!usuario.txt_apepat &amp;&amp; estado_apepat" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Apellido materno:</label>
+                    <div class="col-sm-8">
+                      <input type="text" id="txt_apemat" name="txt_apemat" ng-model="usuario.txt_apemat" required class="form-control">
+                      <div ng-show="!usuario.txt_apemat &amp;&amp; estado_apemat" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Fecha de nacimiento:</label>
+                    <div class="col-sm-8">
+                      <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" ng-model="fecha_nacimiento" required class="form-control">
+                      <div ng-show="!fecha_nacimiento &amp;&amp; estado_fecha_nacimiento" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Género:</label>
+                    <div class="col-sm-8">
+                      <select id="select_genero" name="select_genero" ng-model="usuario.select_genero" required class="custom-select col-sm-10">
+                        <option selected></option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                      </select>
+                      <div ng-show="!usuario.select_genero &amp;&amp; estado_select_genero" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Tipo de documento:</label>
+                    <div class="col-sm-8">
+                      <select id="select_tipo_documento" name="select_tipo_documento" ng-model="usuario.select_tipo_documento" required class="custom-select col-sm-10">
+                        <option selected></option>
+                        <option value="1">DNI</option>
+                        <option value="2">Carnet de Extranjeria</option>
+                      </select>
+                      <div ng-show="!usuario.select_tipo_documento &amp;&amp; estado_select_tipo_documento" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">N° de documento:</label>
+                    <div class="col-sm-8">
+                      <input type="number" id="txt_numero_dni" name="txt_numero_dni" ng-model="usuario.txt_numero_dni" required class="form-control">
+                      <div ng-show="!usuario.txt_numero_dni &amp;&amp; estado_txt_numero_dni" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Teléfono:</label>
+                    <div class="col-sm-8">
+                      <input type="number" id="txt_telefono" name="txt_telefono" ng-model="usuario.txt_telefono" required class="form-control">
+                      <div ng-show="!usuario.txt_telefono &amp;&amp; estado_txt_telefono" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Celular:</label>
+                    <div class="col-sm-8">
+                      <input type="number" id="txt_celular" name="txt_celular" ng-model="usuario.txt_celular" required class="form-control">
+                      <div ng-show="!usuario.txt_celular &amp;&amp; estado_txt_celular" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Estado Civil:</label>
+                    <div class="col-sm-8">
+                      <select id="select_estado_civil" name="select_estado_civil" ng-model="usuario.select_estado_civil" required class="custom-select col-md-10">
+                        <option selected></option>
+                        <option value="1">Soltero</option>
+                        <option value="2">Casado</option>
+                        <option value="1">Divorciado</option>
+                        <option value="1">Viudo</option>
+                      </select>
+                      <div ng-show="!usuario.select_estado_civil &amp;&amp; estado_select_estado_civil" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Email:</label>
+                    <div class="col-sm-8">
+                      <input type="email" id="txt_email" name="txt_email" ng-model="usuario.txt_email" required class="form-control">
+                      <div ng-show="!usuario.txt_email &amp;&amp; estado_txt_email" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-4 form-control-label">Dirección:</label>
+                    <div class="col-sm-8">
+                      <input type="text" id="txt_dir" name="txt_dir" ng-model="usuario.txt_dir" required class="form-control">
+                      <div ng-show="!usuario.txt_dir &amp;&amp; estado_txt_dir" ng-bind=" 'El campo no ha sido ingresado.' " class="alert alert-warning"></div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="accion" value="registrar_alumno">
+                  <input type="hidden" id="txt_edad" name="txt_edad" ng-model="usuario.txt_edad">
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <input type="submit" value="Registrar" ng-disabled="formulario_registro.$invalid" class="form-control btn-primary col-md-4 offset-md-8">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------ Footer General -------------------------->
+      <footer role="contentinfo" class="footer">
+        <div class="container">
+          <ul class="redes-sociales">
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-youtube"></i></a></li>
+          </ul>
+          <p>2016 ©USMP - Todos los derechos reservados</p>
+        </div>
+      </footer><a data-scroll href="#header" class="btn-arriba"><i class="fa fa-arrow-circle-up"></i></a>
+    </section>
+    <!-- ------------------------ Carga de archivos JS -------------------------->
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/tether/tether.min.js"></script>
+    <script src="../libs/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../libs/moment/moment.min.js"></script>
+    <script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../libs/wow/wow.min.js"></script>
+    <script src="../libs/smooth-scroll/smooth-scroll.min.js"></script>
+    <script src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular/angular-route.min.js"></script>
+    <script src="../../dev/js/app.js"></script>
+    <script src="../../dev/js/controllers/loginController.js"></script>
+    <script src="../../dev/js/controllers/registroController.js"></script>
+    <script src="../js/main-dist.js"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app-sgc">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Juan Carlos Raúl Contreras Meneses">
+    <meta name="robots" content="">
+    <title>SGC | Sistema de Gestión de Cursos</title>
+    <!-- ------------------------ Carga de fuentes -------------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <!-- ------------------------ Carga de archivos CSS -------------------------->
+    <link rel="shortcut icon" href="../images/logo-icon.ico">
+    <link rel="stylesheet" href="../libs/normalize/normalize.css">
+    <link rel="stylesheet" href="../libs/bootstrap4/css/bootstrap-flex.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../libs/animate/animate.min.css">
+    <link rel="stylesheet" href="../libs/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/styles-dist.css">
+  </head>
+  <body>
+    <section class="contenedor-principal">
+      <!-- ------------------------ Header Cliente -------------------------->
+      <header id="header-cliente" role="banner" class="header navbar-fixed-top">
+        <div class="container"><a href="index.html" class="logo"><img src="../images/logo.png" alt="Logo del sitio" class="img-fluid"></a>
+          <button type="button" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false" class="boton-menu hidden-md-up"><i class="fa fa-bars"></i></button>
+          <nav id="menu-principal" ng-controller="loginController" class="collapse">
+            <ul>
+              <li class="active"><a href="index.html">Mis cursos</a></li>
+              <li><a href="" data-toggle="collapse" data-target="#bloque-usuario" aria-expanded="false">Usuario<i class="fa fa-angle-down"></i></a></li>
+            </ul>
+          </nav>
+          <div id="bloque-usuario" action="#" class="collapse">
+            <div class="container-bloque-usuario"><a href="">Mi perfil</a><a href="">Mis mensajes</a><a href="">Cerrar sesíon</a></div>
+          </div>
+        </div>
+      </header>
+      <div class="envoltura-principal">
+        <!-- ------------------------ Encuesta -------------------------->
+        <div class="mis-cursos">
+          <div class="cabecera-mis-cursos">
+            <h2 class="text-xs-center">Encuesta</h2>
+          </div>
+          <div class="container ctn-encuesta">
+            <style>
+              .mis-cursos .ctn-encuesta {
+                display: flex;
+                justify-content: center;
+              }
+              
+              .ctn-encuesta .titulo-encuesta {
+                font-size: 2rem;
+              }
+              
+              .ctn-encuesta .respuestas {
+                font-size: 1.3rem;
+              }
+              
+              .ctn-btn-encuesta {
+                display: flex;
+                justify-content: center;
+                align-items: center;  
+              }
+              
+              .btn-encuesta {
+                margin: 2rem 0; 
+              }
+              
+            </style>
+            <form id="formulario_encuesta" name="formulario_encuesta" action="<%=request.getContextPath() %>/RegistroEncuesta" method="post" novalidate>
+        <input type="hidden" name="idalumno" value="<%=alum.getId_alumno()%>">
+  
+        <table>
+          
+          <tr class="titulo-encuesta col-xs-12">
+            <td><span>1- ¿Cómo te autodefinirías?</span>
+            </td>
+          </tr>
+          
+          <tr class="respuestas">
+            <td>
+              <input type="radio" name="radio<%=f+1%>" id="radio<%=f+1%>" value="<%=v%>">
+              <span>a.  Seguro de ti mismo</span>
+            </td>
+          </tr>
+          
+          <tr class="respuestas">
+          
+          
+            <td>
+            <input type="radio" name="radio<%=f+1%>" id="radio<%=f+1%>" value="<%=v%>">
+            <span>b.  Una carga para tu familia</span>
+            </td>
+          </tr>
+          
+          <tr class="respuestas">
+            <td>
+              <input type="radio" name="radio<%=f+1%>" id="radio<%=f+1%>" value="<%=v%>">
+              <span>c.  Inseguro</span>
+            </td>
+          </tr>
+          
+          <tr class="respuestas">
+            <td>
+              <input type="radio" name="radio<%=f+1%>" id="radio<%=f+1%>" value="<%=v%>">
+              <span>d.  Reservado</span>
+            </td>
+          </tr>
+          
+          <tr class="respuestas">
+            <td>
+              <input type="radio" name="radio<%=f+1%>" id="radio<%=f+1%>" value="<%=v%>">
+              <span>e.  Pesimista</span>
+            </td>
+        
+          </tr>
+          
+        </table>
+        <div class="ctn-btn-encuesta">
+          <input type="submit" value="Enviar" class="btn btn-primary btn-encuesta col-xs-12">
+        </div>
+      </form>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------ Footer General -------------------------->
+      <footer role="contentinfo" class="footer">
+        <div class="container">
+          <p>2016 ©USMP - Todos los derechos reservados</p>
+        </div>
+      </footer><a data-scroll href="#header-cliente" class="btn-arriba"><i class="fa fa-arrow-circle-up"></i></a>
+    </section>
+    <!-- ------------------------ Carga de archivos JS -------------------------->
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <script src="../libs/tether/tether.min.js"></script>
+    <script src="../libs/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../libs/moment/moment.min.js"></script>
+    <script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../libs/wow/wow.min.js"></script>
+    <script src="../libs/smooth-scroll/smooth-scroll.min.js"></script>
+    <script src="../libs/angular/angular.min.js"></script>
+    <script src="../libs/angular/angular-route.min.js"></script>
+    <script src="../../dev/js/app.js"></script>
+    <script src="../../dev/js/controllers/loginController.js"></script>
+    <script src="../../dev/js/controllers/registroController.js"></script>
+    <script src="../../dev/js/controllers/cursoController.js"></script>
+    <script src="../js/main-dist.js"></script>
+  </body>
+</html>

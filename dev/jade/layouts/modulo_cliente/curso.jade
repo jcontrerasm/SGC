@@ -1,0 +1,79 @@
+extends ../../templates/frame_cliente
+
+block contents
+
+    // ------------------------ Curso ------------------------
+
+    div(class="curso" ng-controller="cursoController")
+        div(class="cabecera-curso")
+            h2(class="text-xs-center") Cursos : Diseño de Confecciones en 3D
+
+        div(class="container-fluid")
+            div(class="row")
+
+                div(id="menu-curso" class="col-md-3" ng-model="menu_curso" ng-show="menu_curso")
+
+                    section(id="acordion-curso" class="menu-curso card panel-group" role="tablist")
+
+                        a(data-toggle="collapse" data-parent="#acordion-curso" href="#accordion1")
+                            i(class="fa fa-home")
+                            span Inicio
+                        div(id="accordion1" class="collapse in")
+                            div(class="submenu-curso")
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Descripción
+
+                        a(data-toggle="collapse" data-parent="#acordion-curso" href="#accordion2")
+                            i(class="fa fa-book")
+                            span Contenido
+                        div(id="accordion2" class="collapse")
+                            div(class="submenu-curso")
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Introducción
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Módulo 1
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Módulo 2
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Módulo 3
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Módulo 4
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Módulo 5
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Módulo 6
+
+                        a(data-toggle="collapse" data-parent="#acordion-curso" href="#accordion3")
+                            i(class="fa fa-newspaper-o")
+                            span Seguimiento
+                        div(id="accordion3" class="collapse")
+                            div(class="submenu-curso")
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Mensajes
+                                a(href="" class="")
+                                    i(class="fa fa-angle-right")
+                                    span Resultados
+                    
+                div(id="seccion-curso" class="col-md-9")
+                    
+                    section(class="seccion-curso card")
+                        //include includes/descripcion
+                        include includes/modulo
+
+                    button(type="button" class="fa fa-expand btn-pantalla" data-toggle="tooltip" data-placement="left" title="Presione el botón para ampliar la pantalla." ng-model="btn_ampliar" ng-show="btn_ampliar" ng-click="opcion_pantalla('ampliar')")
+
+                    button(type="button" class="fa fa-compress btn-pantalla" data-toggle="tooltip" data-placement="left" title="Presione el botón para reducir la pantalla." ng-model="btn_reducir" ng-show="btn_reducir" ng-click="opcion_pantalla('reducir')")
+
+
+
+
+

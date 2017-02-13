@@ -1,0 +1,121 @@
+
+
+.curso .cabecera-curso h2 {
+	padding-top: 6rem;
+	padding-bottom: 2rem;
+	background-color: $c-primario;
+	color: #ffffff;
+}
+
+.menu-curso {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 0px;
+	margin: 1rem 0;
+	transition: .5s;
+}
+
+.menu-curso > a {
+	height: 3rem;
+	padding-left: 2rem;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 1.05rem;
+	background-color: #489FDF;
+	color: #FFFFFF;
+}
+
+.menu-curso > a > i ,
+.submenu-curso > a > i ,
+.bloque-temas-curso > a > i{
+	padding-right: 1rem;
+	font-size: 1.4rem;
+}
+
+.menu-curso .submenu-curso {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	//background-color: orange;
+}
+
+.menu-curso .submenu-curso > a{
+	height: 3rem;
+	padding-left: 2rem;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	background-color: #4D5260;
+	color: #FFFFFF;
+}
+
+.menu-curso .submenu-curso > a:hover{
+	opacity: .9;
+}
+
+// Seccion contenido - curso
+
+.seccion-curso {
+	margin: 1rem 0;
+	min-height: 400px;
+	position: relative;
+	z-index: 900;
+}
+
+.btn-pantalla {
+	width: 3rem;
+	height: 3rem;
+	position: absolute;
+	z-index: 1000;
+	top: 1rem;
+	right: 1rem;
+	opacity: .4;
+	transition: .5s;
+}
+
+.seccion-curso .btn-pantalla:hover {
+	opacity: .8;
+}
+
+.seccion-curso .contenido-curso {
+	margin: 2rem;
+}
+
+.seccion-curso .contenido-curso h3 {
+	margin-bottom: 1rem;
+}
+
+.bloque-temas-curso {
+	display: flex;
+	flex-direction: column;
+}
+
+.bloque-temas-curso > a {
+	height: 3rem;
+	padding-left: 2rem;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	font-size: 1.05rem;
+	color: $c-texto;
+	transition: .5s;
+}
+
+.bloque-temas-curso > a:hover {
+	background-color: #489FDF;
+	color: #FFFFFF;
+	opacity: .8;
+}
+
+.bloque-contenido-curso {
+	display: flex;
+	flex-direction: column;
+}
+
+.bloque-contenido-curso > iframe {
+	width: 100%;
+	height: 600px;
+}

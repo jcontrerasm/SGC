@@ -1,0 +1,39 @@
+extends ../../templates/frame_general
+
+block contents
+
+	// ------------------------ Contacto ------------------------
+
+	div(class="contacto")
+		div(class="container")
+			h2 ¿Tienes alguna duda? 
+				span Escribenos
+			//p Complete los siguientes campos para formar parte de la comunidad peruana oficial de oficios a travez de una experiencia virtual.
+
+			div(class="container-formulario-contacto")
+				form(class="col-md-6" method="post" action="" id="formulario_contacto" name="formulario_contacto")
+
+					div(class="col-xs-12")
+						div(class="form-group row")
+							label(class="col-md-3 form-control-label") Nombre:
+							div(class="col-md-9")
+								input(type="text" class="form-control" id="nombre_contacto" name="nombre_contacto")
+
+						div(class="form-group row")
+							label(class="col-md-3 form-control-label") Email:
+							div(class="col-md-9")
+								input(type="email" class="form-control" id="email_contacto" name="email_contacto")
+
+						div(class="form-group row")
+							label(class="col-md-3 form-control-label") Asunto:
+							div(class="col-md-9")
+								input(type="text" class="form-control" id="asunto_contacto" name="asunto_contacto")
+
+						div(class="form-group row")
+							label(class="col-md-3 form-control-label") Mensaje:
+							div(class="col-md-9")
+								textarea(class="form-control" id="mensaje_contacto" name="mensaje_contacto")
+
+						div(class="form-group row")
+							div(class="col-md-12")
+								input(type="submit" class="form-control btn-primary col-sm-3 offset-sm-9" value="Enviar")

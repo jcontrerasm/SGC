@@ -1,0 +1,52 @@
+extends ../../../templates/frame_administrador
+
+block contents
+
+    // ------------------------ Principal Administrador ------------------------
+
+    div(class="container-fluid principal-admin" ng-controller="adminController")
+
+        div(class="row")
+
+            div(id="menu-admin" class="col-lg-3" ng-model="menu_admin")
+
+                section(id="acordion-menu-admin" class="menu-admin card panel-group" role="tablist")
+
+                    a(data-toggle="collapse" data-parent="#acordion-menu-admin" href="#accordion-admin")
+                        i(class="fa fa-bars")
+                        span Menu Administrador
+
+                    div(id="accordion-admin" class="collapse in")
+                        div(class="submenu-admin")
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Crear tipo de encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Mostrar tipo de encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Crear encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Mostrar encuesta
+
+            div(class="col-lg-9" ng-model="contenido_admin" )
+
+                section(class="contenido-admin card")
+
+                    h3 Editar pregunta
+
+                    form(class="col-md-8" method="post" action="" id="formulario_editar_pregunta" name="formulario_editar_pregunta" novalidate)
+
+                        div(class="col-xs-12")
+                            
+                            div(class="form-group row")
+                                div(class="col-md-12")
+                                    input(type="hidden" name="numero" value="")
+                                    input(type="text" class="form-control" id="pregunta" name="pregunta" ng-model="pregunta" required)
+                                    div(ng-show="!pregunta && estado_pregunta" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+                            div(class="form-group row")
+                                div(class="col-md-12")
+                                    input(id="btn-tipo-encuesta" type="submit" class="form-control btn-primary col-sm-3 offset-sm-9" value="Actualizar" ng-disabled="formulario_editar_pregunta.$invalid")

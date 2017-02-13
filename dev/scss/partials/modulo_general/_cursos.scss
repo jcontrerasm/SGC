@@ -1,0 +1,37 @@
+
+.cursos .container {
+	padding-top: 6.5rem;
+}
+
+.cursos .container span:first-child {
+	color: $c-primario;
+}
+
+.cursos .container .container {
+	padding: 1rem;
+}
+
+.cursos .container .container .row {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.cursos .container .container .row .card{
+	margin: 1rem 1rem;
+	flex: 1 1 30%;
+	padding: 0;
+	text-decoration: none;
+	color: $c-texto;
+	background-color: #D9D9D9;
+	transition: .5s;
+
+	@media (max-width: 768px){
+      flex: 1 1 100%;
+    }
+
+}
+
+.cursos .container .container .row .card:hover {
+	background-color: #9ED1B0;
+}

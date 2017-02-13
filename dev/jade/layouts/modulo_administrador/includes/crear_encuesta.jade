@@ -1,0 +1,60 @@
+extends ../../../templates/frame_administrador
+
+block contents
+
+    // ------------------------ Principal Administrador ------------------------
+
+    div(class="container-fluid principal-admin" ng-controller="adminController")
+
+        div(class="row")
+
+            div(id="menu-admin" class="col-lg-3" ng-model="menu_admin")
+
+                section(id="acordion-menu-admin" class="menu-admin card panel-group" role="tablist")
+
+                    a(data-toggle="collapse" data-parent="#acordion-menu-admin" href="#accordion-admin")
+                        i(class="fa fa-bars")
+                        span Menu Administrador
+
+                    div(id="accordion-admin" class="collapse in")
+                        div(class="submenu-admin")
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Crear tipo de encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Mostrar tipo de encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Crear encuesta
+                            a(href="" class="")
+                                i(class="fa fa-angle-right")
+                                span Mostrar encuesta
+
+            div(class="col-lg-9" ng-model="contenido_admin" )
+
+                section(class="contenido-admin card")
+
+                    h3 Crear encuesta
+
+                    form(class="col-md-8" method="post" action="" id="formulario_encuesta" name="formulario_encuesta" novalidate)
+
+                        div(class="col-xs-12")
+                            
+                            div(class="form-group row")
+                                label(class="col-md-3 form-control-label") Nombre de la encuesta:
+                                div(class="col-md-9")
+                                    input(type="text" class="form-control" id="nombreE" name="nombreE" ng-model="nombreE" required)
+                                    div(ng-show="!nombreE && estado_nombreE" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+                            div(class="form-group row")
+                                label(class="col-md-3 form-control-label") Tipo de encuesta:
+                                div(class="col-md-9")
+                                    select(class="custom-select col-sm-10" id="tipoEncuesta" name="tipoEncuesta" ng-model="tipoEncuesta" required)
+                                        option(selected)
+                                        option(value="1") d
+                                    div(ng-show="!tipoEncuesta && estado_tipoEncuesta" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+                            div(class="form-group row")
+                                div(class="col-md-12")
+                                    input(id="btn-tipo-encuesta" type="submit" class="form-control btn-primary col-sm-3 offset-sm-9" value="Guardar" ng-disabled="formulario_encuesta.$invalid")

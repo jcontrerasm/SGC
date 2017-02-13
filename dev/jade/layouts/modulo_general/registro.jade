@@ -1,0 +1,104 @@
+extends ../../templates/frame_general
+
+block contents
+
+	// ------------------------ Registro ------------------------
+
+	div(class="registro" ng-controller="registroController")
+		div(class="container")
+			h2 Formulario de Registro
+			p Complete los siguientes campos para formar parte de la comunidad peruana oficial de oficios a travez de una experiencia virtual.
+
+			div(class="container-formulario-registro")
+				form(id="formulario_registro" name="formulario_registro" class="row" method="post" action="" novalidate)
+					div(class="col-md-6")
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Nombre:
+							div(class="col-sm-8")
+								input(type="text" class="form-control" id="txt_nombre" name="txt_nombre" ng-model="usuario.txt_nombre" required)
+								div(ng-show="!usuario.txt_nombre && estado_nombre" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Apellido paterno:
+							div(class="col-sm-8")
+								input(type="text" class="form-control" id="txt_apepat" name="txt_apepat" ng-model="usuario.txt_apepat" required)
+								div(ng-show="!usuario.txt_apepat && estado_apepat" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Apellido materno:
+							div(class="col-sm-8")
+								input(type="text" class="form-control" id="txt_apemat" name="txt_apemat" ng-model="usuario.txt_apemat" required)
+								div(ng-show="!usuario.txt_apemat && estado_apemat" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Fecha de nacimiento:
+							div(class="col-sm-8")
+								input(type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" ng-model="fecha_nacimiento" required)
+								div(ng-show="!fecha_nacimiento && estado_fecha_nacimiento" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Género:
+							div(class="col-sm-8")
+								select(class="custom-select col-sm-10" id="select_genero" name="select_genero" ng-model="usuario.select_genero" required)
+									option(selected)
+									option(value="M") Masculino
+									option(value="F") Femenino
+								div(ng-show="!usuario.select_genero && estado_select_genero" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Tipo de documento:
+							div(class="col-sm-8")
+								select(class="custom-select col-sm-10" id="select_tipo_documento" name="select_tipo_documento" ng-model="usuario.select_tipo_documento" required)
+									option(selected)
+									option(value="1") DNI
+									option(value="2") Carnet de Extranjeria
+								div(ng-show="!usuario.select_tipo_documento && estado_select_tipo_documento" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+					div(class="col-md-6")
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") N° de documento:
+							div(class="col-sm-8")
+								input(type="number" class="form-control" id="txt_numero_dni" name="txt_numero_dni" ng-model="usuario.txt_numero_dni" required)
+								div(ng-show="!usuario.txt_numero_dni && estado_txt_numero_dni" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Teléfono:
+							div(class="col-sm-8")
+								input(type="number" class="form-control" id="txt_telefono" name="txt_telefono" ng-model="usuario.txt_telefono" required)
+								div(ng-show="!usuario.txt_telefono && estado_txt_telefono" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Celular:
+							div(class="col-sm-8")
+								input(type="number" class="form-control" id="txt_celular" name="txt_celular" ng-model="usuario.txt_celular" required)
+								div(ng-show="!usuario.txt_celular && estado_txt_celular" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Estado Civil:
+							div(class="col-sm-8")
+								select(class="custom-select col-md-10" id="select_estado_civil" name="select_estado_civil" ng-model="usuario.select_estado_civil" required)
+									option(selected)
+									option(value="1") Soltero
+									option(value="2") Casado
+									option(value="1") Divorciado
+									option(value="1") Viudo
+								div(ng-show="!usuario.select_estado_civil && estado_select_estado_civil" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Email:
+							div(class="col-sm-8")
+								input(type="email" class="form-control" id="txt_email" name="txt_email" ng-model="usuario.txt_email" required)
+								div(ng-show="!usuario.txt_email && estado_txt_email" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						div(class="form-group row")
+							label(class="col-sm-4 form-control-label") Dirección:
+							div(class="col-sm-8")
+								input(type="text" class="form-control" id="txt_dir" name="txt_dir" ng-model="usuario.txt_dir" required)
+								div(ng-show="!usuario.txt_dir && estado_txt_dir" class="alert alert-warning" ng-bind=" 'El campo no ha sido ingresado.' ")
+
+						input(type="hidden" name="accion" value="registrar_alumno")
+						input(type="hidden" id="txt_edad" name="txt_edad" ng-model="usuario.txt_edad")
+
+						div(class="form-group row")
+							div(class="col-md-12")
+								input(type="submit" class="form-control btn-primary col-md-4 offset-md-8" value="Registrar" ng-disabled="formulario_registro.$invalid")
